@@ -39,4 +39,4 @@
 Перейти в каталог vendor/bin;
 Запустить Командную строку и ввести "php hangman.php".
 Ссылки
-Packagist: https://packagist.org/packages/hazzardgg/hangman
+Packagist: https://packagist.org/packages/hazzardgg/hangman (пока не удается загрузить)
