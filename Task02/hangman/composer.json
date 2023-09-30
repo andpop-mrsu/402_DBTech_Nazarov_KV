@@ -2,7 +2,7 @@
     "name": "kirya/hangman",
     "autoload": {
         "psr-4": {
-            "Hazzardgg\\Hangman\\": "src/"
+            "Hazzardgg\\hangman\\": "src/"
         },
         "files": [
             "src/Controller.php",

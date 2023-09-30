@@ -1,8 +1,6 @@
 #!/usr/bin/env php
 <?php
 
-namespace Hazzardgg;
-
 $autoloadPath = __DIR__ . '/../vendor/autoload.php';
 
 if (file_exists($autoloadPath)) {
