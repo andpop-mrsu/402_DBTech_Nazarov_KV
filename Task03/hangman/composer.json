@@ -1,5 +1,6 @@
 {
     "name": "hazzardgg/hangman",
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "Hazzardgg\\hangman\\": "src/"

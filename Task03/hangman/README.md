@@ -35,8 +35,8 @@
 
 Установить composer, если он не установлен;
 Перейти в каталог, в который вы будете клонировать проект;
-Выполнить команду composer require kirya/hangman;
+Выполнить команду composer require hazzardgg/hangman;
 Перейти в каталог vendor/bin;
 Запустить Командную строку и ввести "php hangman.php".
 Ссылки
-Packagist: https://packagist.org/packages/kirya/hangman
+Packagist: https://packagist.org/packages/hazzardgg/hangman

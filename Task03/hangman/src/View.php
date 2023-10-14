@@ -3,12 +3,39 @@
 namespace Hazzardgg\hangman\View;
 
 use function cli\line;
+use function cli\prompt;
 
 class View
 {
+    static function inputLetter()
+    {
+        $letter = prompt("Input letter");
+        return $letter;
+    }
+
+    static function rightMessage()
+    {
+        line("You right!");
+    }
+
+    static function wrongMessage()
+    {
+        line("You wrong(");
+    }
+
+    static function winMessage($word)
+    {
+        line("You win! Hidding word is: " . $word);
+    }
+
+    static function loseMessage($word)
+    {
+        line("You lose( Hidding word is: " . $word);
+    }
+
     static function drawWord($word)
     {
-        line($word);
+        line("Word: " . $word);
     }
 
     static function drawHangman($errors)
