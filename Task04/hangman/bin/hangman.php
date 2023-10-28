@@ -10,7 +10,6 @@ if (file_exists($autoloadPath)) {
 use Hazzardgg\hangman\Controller\Controller;
 
 $session = new Controller();
-while (true)
-{
+while (true) {
     $session->menu();
 }

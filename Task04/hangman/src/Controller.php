@@ -5,7 +5,6 @@ namespace Hazzardgg\hangman\Controller;
 use Hazzardgg\hangman\View\View;
 use Hazzardgg\hangman\Model\Model;
 
-
 class Controller
 {
     private $name;
@@ -20,13 +19,21 @@ class Controller
     public function menu()
     {
         $choise = View::makeChoice();
-        switch ($choise)
-        {
-            case 1: $this->startGame(); break;
-            case 2: $this->model->showGames(); break;
-            case 3: $this->model->repeatGame(View::makeInput()); break;
-            case 4: $this->model->closeConnection(); exit;
-            default: break;
+        switch ($choise) {
+            case 1:
+                $this->startGame();
+                break;
+            case 2:
+                $this->model->showGames();
+                break;
+            case 3:
+                $this->model->repeatGame(View::makeInput());
+                break;
+            case 4:
+                $this->model->closeConnection();
+                exit;
+            default:
+                break;
         }
     }
 
@@ -40,8 +47,7 @@ class Controller
         View::drawHangman($errors);
         $end = true;
         $step = 1;
-        while ($end)
-        {
+        while ($end) {
             $letter = View::inputLetter();
             echo $letter;
             if (strlen($letter) == 1) {
@@ -51,8 +57,7 @@ class Controller
                 $end = false;
                 View::loseMessage($hidden_word);
                 $this->model->storeGame($this->name, $hidden_word, "lose");
-            }
-            elseif ($found_letters == 6) {
+            } elseif ($found_letters == 6) {
                 $end = false;
                 View::winMessage($hidden_word);
                 $this->model->storeGame($this->name, $hidden_word, "win");

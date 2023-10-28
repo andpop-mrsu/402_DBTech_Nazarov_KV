@@ -3,7 +3,6 @@
 namespace Hazzardgg\hangman\Model;
 
 use Hazzardgg\hangman\View\View;
-
 use SQLite3;
 
 class Model
@@ -30,7 +29,7 @@ class Model
             result STRING
             )";
         $this->db->exec($query);
-        
+
         $query = "CREATE TABLE IF NOT EXISTS words (
             word STRING PRIMARY KEY
             )";
@@ -63,8 +62,7 @@ class Model
         $query = "SELECT (game_id) FROM finished_games
             ORDER BY rowid DESC LIMIT 1";
         $result = $this->db->query($query);
-        if ($row = $result->fetchArray())
-        {
+        if ($row = $result->fetchArray()) {
             $game_id = $row[0] + 1;
         }
 
@@ -82,12 +80,11 @@ class Model
         $query = "SELECT (game_id) FROM finished_games
             ORDER BY rowid DESC LIMIT 1";
         $result = $this->db->query($query);
-        if ($row = $result->fetchArray())
-        {
+        if ($row = $result->fetchArray()) {
             $game_id = $row[0] + 1;
         }
-            
-        
+
+
         $query = "INSERT INTO tries
                 (game_id, step, letter, result)
                 VALUES ('$game_id', '$step', '$letter', '$outcome')";
@@ -97,22 +94,18 @@ class Model
     public function checkLetter($step, $letter, $hidden_word, &$temp_word, &$errors, &$found_letters)
     {
         $error_flag = true;
-        for ($i = 0; $i < strlen($hidden_word); $i++)
-        {
+        for ($i = 0; $i < strlen($hidden_word); $i++) {
             if ($letter[0] == $hidden_word[$i]) {
                 $error_flag = false;
                 $temp_word[$i * 2] = $letter;
                 $found_letters++;
             }
         }
-        if ($error_flag)
-        {
+        if ($error_flag) {
             View::wrongMessage();
             $this->storeTry($step, $letter, 'wrong');
             $errors++;
-        }
-        else
-        {   
+        } else {
             View::rightMessage();
             $this->storeTry($step, $letter, 'right');
         }
@@ -139,5 +132,4 @@ class Model
     {
         $this->db->close();
     }
-
 }
